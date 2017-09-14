@@ -1,7 +1,6 @@
 // Matrix.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
@@ -155,10 +154,10 @@ void diagMatrix(Matrix *reference, Matrix *upperTriangle) {
 	while (j < reference->m) {
 		for (int i = 0; i<reference->n; i++) {
 			if (j >= i) {
-				upperTriangle->matrix[i][j] = getValue(&lowerTriangle, upperTriangle, reference, i, j);
+				upperTriangle->matrix[i][j] = getValue(&lowerTriangle, upperTriangle, reference, i, j, reference->n, true);
 			}
 			else {
-				lowerTriangle.matrix[i][j] = getValue(&lowerTriangle, upperTriangle, reference, i, j);
+				lowerTriangle.matrix[i][j] = getValue(&lowerTriangle, upperTriangle, reference, i, j, reference->n, false);
 			}
 			j++;
 		}
